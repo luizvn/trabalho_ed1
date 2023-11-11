@@ -11,9 +11,10 @@
 typedef struct nodo1{
     int id;
     char nome[TAM];
-    //int quantidade; -> FAZER COM QUE CADA LUGAR GRAVE QUANTAS VEZES CADA CLIENTE FOI LÁ
+    int qtde_turista01, qtde_turista02;
     struct nodo1 *baixo, *prox;
 }Nodo;
+
 //ARVORE DE DECISÃO:
 typedef struct nodo2{
     int id;
@@ -35,7 +36,7 @@ void creditos(){
     printf("\n UNIVERSIDADE DO ESTADO DA BAHIA(UNEB)    ");
     printf("\n COMPONENTES:                             ");
     printf("\n - Gabriel Cerqueira Santos Rodrigues     ");
-    printf("\n - Luiz Vinícius Pereira                  ");
+    printf("\n - Luiz Vinícius Pereira de Oliveira Souza");
     printf("\n PROFESSORA: Maria Inês                   ");
     printf("\n DISCIPLINA: Estrtura de Dados I(ED1)     ");
     printf("\n SEMESTRE: 3º semestre                    ");
@@ -141,15 +142,15 @@ int main(){
     do{
         system("cls");
         printf("\n |====================| VIAGENS ED1 |====================|");
-        printf("\n 1 - ");
-        printf("\n 2 - ");
-        printf("\n 3 - ");
-        printf("\n 4 - ");
-        printf("\n 5 - ");
-        printf("\n 6 - ");
-        printf("\n 7 - ");
-        printf("\n 8 - ");
-        printf("\n 9 - Sair do Sistema                                      ");
+        printf("\n |1 - ");
+        printf("\n |2 - ");
+        printf("\n |3 - ");
+        printf("\n |4 - ");
+        printf("\n |5 - ");
+        printf("\n |6 - ");
+        printf("\n |7 - ");
+        printf("\n |8 - ");
+        printf("\n |9 - Sair do Sistema                                    |");
         printf("\n |=======================================================|");
         printf("\n ESCOLHA A OPÇÃO: ");
         scanf("%d", &op);
