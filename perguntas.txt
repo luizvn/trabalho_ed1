@@ -1,0 +1,9 @@
+perguntas
+	gosta de calor
+		sim: viagem nacional
+			sim:gosta de praia
+				sim: 
+				nao:gosta de politica
+					sim:brasilia
+					nao:sao paulo
+			nao:	

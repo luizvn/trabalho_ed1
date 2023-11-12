@@ -13,7 +13,7 @@ typedef struct nodo1{
     char nome[TAM];
     int qtde_turista01, qtde_turista02;
     struct nodo1 *baixo, *prox;
-}Nodo;
+}Lista;
 
 //ARVORE DE DECISÃO:
 typedef struct nodo2{
@@ -26,6 +26,96 @@ typedef struct nodo2{
 
 void creditos();
 void sobre();
+void montar_lista(Lista **);
+void montar_arvore(Arvore *);
+
+// ======= MAIN =======
+
+int main(){
+    setlocale(LC_ALL, "Portuguese");
+
+    int op;
+    Lista *inicio;
+    Arvore *raiz;
+
+    inicio = NULL;
+    raiz = NULL;
+    
+   // montar_lista(&inicio);
+  //  montar_arvore(raiz);
+
+    // MENU INCIAL:
+    do{
+        system("cls");
+        printf("\n |======== TRABALHO ED1 ========|");
+        printf("\n 1 - CREDITOS                    ");
+        printf("\n 2 - SOBRE                       ");
+        printf("\n 3 - ACESSAR O SISTEMA           ");
+        printf("\n |==============================|");
+        printf("\n ESCOLHA A OPCÃO: ");
+        scanf("%d", &op);
+
+        switch(op){
+        case 1:
+            creditos();
+            break;
+        case 2:
+            sobre();
+            break;
+        case 3:
+            break;
+        default:
+            printf("\n\n Opcão invalida!\n");
+            system("pause");
+            break;
+        }
+    }while(op != 3);
+
+    do{
+        system("cls");
+        printf("\n |====================| VIAGENS ED1 |====================|");
+        printf("\n |1 - ");
+        printf("\n |2 - ");
+        printf("\n |3 - ");
+        printf("\n |4 - ");
+        printf("\n |5 - ");
+        printf("\n |6 - ");
+        printf("\n |7 - ");
+        printf("\n |8 - ");
+        printf("\n |9 - Sair do Sistema                                    |");
+        printf("\n |=======================================================|");
+        printf("\n ESCOLHA A OPÇÃO: ");
+        scanf("%d", &op);
+
+        switch(op){
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        case 6:
+            break;
+        case 7:
+            break;
+        case 8:
+            break;
+        case 9:
+            printf("\n Saindo do sistema...\n");
+            system("pause");
+            break;
+        default:
+            printf("\n Opção Inválida!\n");
+            system("pause");
+        }
+    }while(op != 9);
+
+    return 0;
+}
 
 // ======= FUNÇÕES =======
 
@@ -100,87 +190,3 @@ void sobre(){
     system("pause");
 }
 
-// ======= MAIN =======
-
-int main(){
-    setlocale(LC_ALL, "Portuguese");
-
-    int op;
-    Nodo *lista;
-    Arvore *raiz;
-
-    lista = NULL;
-    raiz = NULL;
-
-    // MENU INCIAL:
-    do{
-        system("cls");
-        printf("\n |======== TRABALHO ED1 ========|");
-        printf("\n 1 - CREDITOS                    ");
-        printf("\n 2 - SOBRE                       ");
-        printf("\n 3 - ACESSAR O SISTEMA           ");
-        printf("\n |==============================|");
-        printf("\n ESCOLHA A OPCÃO: ");
-        scanf("%d", &op);
-
-        switch(op){
-        case 1:
-            creditos();
-            break;
-        case 2:
-            sobre();
-            break;
-        case 3:
-            break;
-        default:
-            printf("\n\n Opcão invalida!\n");
-            system("pause");
-            break;
-        }
-    }while(op != 3);
-
-    do{
-        system("cls");
-        printf("\n |====================| VIAGENS ED1 |====================|");
-        printf("\n |1 - ");
-        printf("\n |2 - ");
-        printf("\n |3 - ");
-        printf("\n |4 - ");
-        printf("\n |5 - ");
-        printf("\n |6 - ");
-        printf("\n |7 - ");
-        printf("\n |8 - ");
-        printf("\n |9 - Sair do Sistema                                    |");
-        printf("\n |=======================================================|");
-        printf("\n ESCOLHA A OPÇÃO: ");
-        scanf("%d", &op);
-
-        switch(op){
-        case 1:
-            break;
-        case 2:
-            break;
-        case 3:
-            break;
-        case 4:
-            break;
-        case 5:
-            break;
-        case 6:
-            break;
-        case 7:
-            break;
-        case 8:
-            break;
-        case 9:
-            printf("\n Saindo do sistema...\n");
-            system("pause");
-            break;
-        default:
-            printf("\n Opção Inválida!\n");
-            system("pause");
-        }
-    }while(op != 9);
-
-    return 0;
-}

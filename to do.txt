@@ -1,0 +1,12 @@
+1. lista de paises/cidades:
+	função montar
+	função encrementar turista1/turista2
+	função de somar os turistas1/2 nos nodos de pais
+	função que printa os paises e cidades sem visitantes
+	perguntar sobre as listagens que a professora pede 
+
+2. perguntar para a prof se precisa guardar os clientes me uma lista
+
+3. arvore de decisão:
+	função montar
+	função print perguntas

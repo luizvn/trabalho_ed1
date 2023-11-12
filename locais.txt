@@ -1,0 +1,12 @@
+Brasil:
+	Salvador
+	São Paulo
+	Brasília
+	Rio de Janeiro
+
+
+EUA:
+	Orlando
+	New York
+	Los Angeles
+	
