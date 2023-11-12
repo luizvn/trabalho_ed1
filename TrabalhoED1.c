@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <locale.h> // BIBLIOTECA NECESSÁRIA PARA USAR OS CARACTERES DO PORTUGUÊS
 
 // ======= DEFINES =======
@@ -9,7 +10,6 @@
 
 // LISTA DE PAISES:
 typedef struct nodo1{
-    int id;
     char nome[TAM];
     int qtde_turista01, qtde_turista02;
     struct nodo1 *baixo, *prox;
@@ -18,7 +18,7 @@ typedef struct nodo1{
 //ARVORE DE DECISÃO:
 typedef struct nodo2{
     int id;
-    char mensagem[TAM]; // Mensagem/Pergunta
+   // char mensagem[TAM]; // Mensagem/Pergunta
     struct nodo2 *sim, *nao;
 }Arvore;
 
@@ -41,8 +41,8 @@ int main(){
     inicio = NULL;
     raiz = NULL;
     
-   // montar_lista(&inicio);
-  //  montar_arvore(raiz);
+    montar_lista(&inicio);
+    montar_arvore(raiz);
 
     // MENU INCIAL:
     do{
@@ -188,5 +188,11 @@ void sobre(){
     printf("\n\n");
 
     system("pause");
+}
+
+// MONTAR LISTA
+void montar_lista(Lista **inicio){
+	
+	
 }
 
