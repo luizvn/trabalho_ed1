@@ -2,11 +2,30 @@ Brasil:
 	Salvador
 	São Paulo
 	Brasília
-	Rio de Janeiro
-
+	Fortaleza
 
 EUA:
 	Orlando
 	New York
-	Los Angeles
+	Las Vegas
+
+China:
+	Chengdu
+	Macau
 	
+Russia:
+	Moscou
+	Sao Petersburgo
+
+Itália:
+	Roma
+	Nápoles
+
+Egito:
+	Cairo
+
+Chile:
+	Santiago
+
+Quenia:
+	Nairóbi

@@ -40,7 +40,7 @@ int main(){
 
     inicio = NULL;
     raiz = NULL;
-    
+
     montar_lista(&inicio);
     montar_arvore(raiz);
 
@@ -190,9 +190,90 @@ void sobre(){
     system("pause");
 }
 
+// ÁRVORE DE DECISÃO:
+Arvore* arvore_decisao(Arvore* raiz){
+
+}
+
+// CÓDIGO/ID DA ÁRVORE DE DECISÃO:
+void codigo(int id){
+    // PERGUNTAS:
+    if(id == 1){
+        printf("\n| Gosta de parque aquático? |");
+    } else if(id == 2){
+        printf("\n| Gosta de praia? |");
+    } else if(id == 3){
+        printf("\n| Tem interesse em política? |");
+    } else if(id == 4){
+        printf("\n| Deseja realizar uma viagem nacional? |");
+    } else if(id == 5){
+        printf("\n| Gosta de animais selvagens? |");
+    } else if(id == 6){
+        printf("\n| Gosta de ter experiências próximas a natureza? |");
+    } else if(id == 7){
+        printf("\n| Gosta de jogos de azar? |");
+    } else if(id == 8){
+        printf("\n| Gosta de calor? |");
+    } else if(id == 9){
+        printf("\n| Gosta de museus? | ");
+    } else if(id == 10){
+        printf("\n| Gosta de realizar atividades na neve? |");
+    } else if(id == 11){
+        printf("\n| Gostaria de ter contato com o berço do catolicismo? |");
+    } else if(id == 12){
+        printf("\n| Deseja realizar uma viagem para a Europa? |");
+    } else if(id == 13){
+        printf("\n| Interesse na cultura latina? |");
+    } else if(id == 14){
+        printf("\n| Gosta de altura/montanhas? |");
+    } else if(id == 15){
+        printf("\n| Deseja ter contato com uma culinária única? |");
+    }
+
+    // CIDADES TURÍSTICAS:
+    if(id == 16){
+        printf("\n Fortaleza");
+    } else if(id == 17){
+        printf("\n Salvador");
+    } else if(id == 18){
+        printf("\n Brasília");
+    } else if(id == 19){
+        printf("\n São Paulo");
+    } else if(id == 20){
+        printf("\n SAVANA(Decidir)");
+    } else if(id == 21){
+        printf("\n Cairo");
+    } else if(id == 22){
+        printf("\n Las Vegas");
+    } else if(id == 23){
+        printf("\n Orlando");
+    } else if(id == 24){
+        printf("\n São Petersburgo");
+    } else if(id == 25){
+        printf("\n Moscou");
+    } else if(id == 26){
+        printf("\n Roma");
+    } else if(id == 27){
+        printf("\n Nápoles");
+    } else if(id == 28){
+        printf("\n Santiago");
+    } else if(id == 29){
+        printf("\n Chengdu");
+    } else if(id == 30){
+        printf("\n Macau");
+    } else if(id == 31){
+        printf("\n Nova York");
+    }
+}
+
 // MONTAR LISTA
 void montar_lista(Lista **inicio){
-	
-	
+	Lista *atual, *aux;
+    atual = *inicio;
+
+    if(atual == NULL){
+        atual->nome = 'Brasil';
+    }
+	while()
 }
 
