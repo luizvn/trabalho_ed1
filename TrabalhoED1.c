@@ -42,7 +42,7 @@ int main(){
     raiz = NULL;
 
     montar_lista(&inicio);
-    montar_arvore(raiz);
+    //montar_arvore(raiz);
 
     // MENU INCIAL:
     do{
@@ -269,11 +269,182 @@ void codigo(int id){
 // MONTAR LISTA
 void montar_lista(Lista **inicio){
 	Lista *atual, *aux;
-    atual = *inicio;
 
-    if(atual == NULL){
-        atual->nome = 'Brasil';
+    atual = (Lista*)malloc(sizeof(Lista));
+
+    aux = atual;
+
+    strcpy(atual->nome, "Brasil");
+    printf(" %s ", atual->nome);
+    atual->prox = NULL;
+    atual = atual->prox;
+
+    atual = (Lista*)malloc(sizeof(Lista));
+
+    //atual = *inicio;
+    strcpy(atual->nome, "Estados Unidos");
+    printf(" %s ", atual->nome);
+    atual->prox = NULL;
+    atual = atual->prox;
+
+    atual = (Lista*)malloc(sizeof(Lista));
+
+    //atual = *inicio;
+    strcpy(atual->nome, "China");
+    printf(" %s ", atual->nome);
+    atual->prox = NULL;
+    atual = atual->prox;
+
+    atual = (Lista*)malloc(sizeof(Lista));
+
+    //atual = *inicio;
+    strcpy(atual->nome, "Russia");
+    printf(" %s ", atual->nome);
+    atual->prox = NULL;
+    atual = atual->prox;
+
+    atual = (Lista*)malloc(sizeof(Lista));
+
+    //atual = *inicio;
+    strcpy(atual->nome, "Italia");
+    printf(" %s ", atual->nome);
+    atual->prox = NULL;
+    atual = atual->prox;
+
+    atual = (Lista*)malloc(sizeof(Lista));
+
+    //atual = *inicio;
+    strcpy(atual->nome, "Egito");
+    printf(" %s ", atual->nome);
+    atual->prox = NULL;
+    atual = atual->prox;
+
+    atual = (Lista*)malloc(sizeof(Lista));
+
+    //atual = *inicio;
+    strcpy(atual->nome, "Chile");
+    printf(" %s ", atual->nome);
+    atual->prox = NULL;
+    atual = atual->prox;
+
+    atual = (Lista*)malloc(sizeof(Lista));
+
+    //atual = *inicio;
+    strcpy(atual->nome, "Quenia");
+    printf(" %s ", atual->nome);
+
+    atual->prox = NULL;
+    atual = atual->prox;
+
+    *inicio = aux;
+
+    atual = *inicio;
+    aux = atual;
+
+    while(atual != NULL){
+        if(strcmp(atual->nome,"Brasil") == 0){
+            atual->baixo = NULL;
+            atual = atual->baixo;
+
+            atual = (Lista*)malloc(sizeof(Lista));
+            strcpy(atual->nome, "Salvador");
+            atual->baixo = NULL;
+
+            atual = atual->baixo;
+            atual = (Lista*)malloc(sizeof(Lista));
+            strcpy(atual->nome, "Fortaleza");
+            atual->baixo = NULL;
+            atual = atual->baixo;
+
+            atual = (Lista*)malloc(sizeof(Lista));
+            strcpy(atual->nome, "Sao Paulo");
+            atual->baixo = NULL;
+            atual = atual->baixo;
+
+            atual = (Lista*)malloc(sizeof(Lista));
+            strcpy(atual->nome, "Brasilia");
+            atual->baixo = NULL;
+        } else if(strcmp(atual->nome, "Estados Unidos") == 0){
+            atual->baixo = NULL;
+            atual = atual->baixo;
+
+            atual = (Lista*)malloc(sizeof(Lista));
+            strcpy(atual->nome, "Orlando");
+            atual->baixo = NULL;
+
+            atual = atual->baixo;
+            atual = (Lista*)malloc(sizeof(Lista));
+            strcpy(atual->nome, "Las Vegas");
+            atual->baixo = NULL;
+            atual = atual->baixo;
+
+            atual = (Lista*)malloc(sizeof(Lista));
+            strcpy(atual->nome, "Nova York");
+            atual->baixo = NULL;
+        } else if(strcmp(atual->nome, "China") == 0){
+            atual->baixo = NULL;
+            atual = atual->baixo;
+
+            atual = (Lista*)malloc(sizeof(Lista));
+            strcpy(atual->nome, "Chengdu");
+            atual->baixo = NULL;
+
+            atual = atual->baixo;
+            atual = (Lista*)malloc(sizeof(Lista));
+            strcpy(atual->nome, "Macau");
+            atual->baixo = NULL;
+        } else if(strcmp(atual->nome, "Russia") == 0){
+            atual->baixo = NULL;
+            atual = atual->baixo;
+
+            atual = (Lista*)malloc(sizeof(Lista));
+            strcpy(atual->nome, "Sao Petersburgo");
+            atual->baixo = NULL;
+
+            atual = atual->baixo;
+            atual = (Lista*)malloc(sizeof(Lista));
+            strcpy(atual->nome, "Moscou");
+            atual->baixo = NULL;
+        } else if(strcmp(atual->nome, "Italia") == 0){
+            atual->baixo = NULL;
+            atual = atual->baixo;
+
+            atual = (Lista*)malloc(sizeof(Lista));
+            strcpy(atual->nome, "Chengdu");
+            atual->baixo = NULL;
+
+            atual = atual->baixo;
+            atual = (Lista*)malloc(sizeof(Lista));
+            strcpy(atual->nome, "Macau");
+            atual->baixo = NULL;
+        } else if(strcmp(atual->nome, "Egito") == 0){
+            atual->baixo = NULL;
+            atual = atual->baixo;
+
+            atual = (Lista*)malloc(sizeof(Lista));
+            strcpy(atual->nome, "Cairo");
+            atual->baixo = NULL;
+        } else if(strcmp(atual->nome, "Chile") == 0){
+            atual->baixo = NULL;
+            atual = atual->baixo;
+
+            atual = (Lista*)malloc(sizeof(Lista));
+            strcpy(atual->nome, "Santiago");
+            atual->baixo = NULL;
+        } else if(strcmp(atual->nome, "Quenia") == 0){
+            atual->baixo = NULL;
+            atual = atual->baixo;
+
+            atual = (Lista*)malloc(sizeof(Lista));
+            strcpy(atual->nome, "Nairobi");
+            atual->baixo = NULL;
+        }
+        atual = aux;
+        aux = aux->prox;
+        atual = atual->prox;
     }
-	while()
+
+	printf("\n Lista inicializada! \n");
+	system("pause");
 }
 
