@@ -74,7 +74,7 @@ int main(){
     do{
         system("cls");
         printf("\n |====================| VIAGENS ED1 |====================|");
-        printf("\n |1 - ");
+        printf("\n |1 - Estou decidido em qual local escolher              |");
         printf("\n |2 - ");
         printf("\n |3 - ");
         printf("\n |4 - ");
@@ -192,6 +192,31 @@ void sobre(){
 
 // ÁRVORE DE DECISÃO:
 Arvore* arvore_decisao(Arvore* raiz){
+
+}
+
+Arvore* inserir_id(Arvore* raiz, int n){
+    if(raiz == NULL){
+        raiz = (Arvore*)malloc(sizeof(Arvore));
+        if(raiz == NULL){
+            printf("\n Sem memória");
+            exit(1);
+        }
+        raiz->id = n;
+        raiz->sim = NULL;
+        raiz->nao = NULL;
+        return (raiz);
+    }else{
+        if(n > raiz->id){
+            raiz->nao = inserir_id(raiz->nao, n);
+        } else if(n < raiz->id){
+            raiz->sim = inserir_id(raiz->sim, n)
+        } else{
+            printf("\n [ERRO] valor repetido!");
+            system("pause");
+        }
+        return (raiz);
+    }
 
 }
 
