@@ -48,7 +48,7 @@ int main(){
     do{
         system("cls");
         printf("\n |======== TRABALHO ED1 ========|");
-        printf("\n 1 - CREDITOS                    ");
+        printf("\n 1 - CRÉDITOS                    ");
         printf("\n 2 - SOBRE                       ");
         printf("\n 3 - ACESSAR O SISTEMA           ");
         printf("\n |==============================|");
@@ -210,7 +210,7 @@ Arvore* inserir_id(Arvore* raiz, int n){
         if(n > raiz->id){
             raiz->nao = inserir_id(raiz->nao, n);
         } else if(n < raiz->id){
-            raiz->sim = inserir_id(raiz->sim, n)
+            raiz->sim = inserir_id(raiz->sim, n);
         } else{
             printf("\n [ERRO] valor repetido!");
             system("pause");
