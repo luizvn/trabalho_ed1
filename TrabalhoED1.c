@@ -192,7 +192,19 @@ void sobre(){
 
 // ÁRVORE DE DECISÃO:
 Arvore* arvore_decisao(Arvore* raiz){
+    int n;
 
+    // NÍVEL 0:
+    n = 8;
+    raiz = inserir_id(raiz, n);
+
+    // NÍVEL 1:
+
+    // NÍVEL 2:
+
+    // NÍVEL 3:
+
+    // NÍVEL 4:
 }
 
 Arvore* inserir_id(Arvore* raiz, int n){
