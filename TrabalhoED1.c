@@ -5,7 +5,7 @@
 
 // ======= DEFINES =======
 #define TAM 50
-#define RESP 3
+#define RESP 4
 
 // ======= ESTRUTURAS =======
 
@@ -31,6 +31,8 @@ void montar_lista(Lista **);
 void montar_arvore(Arvore **);
 Arvore* inserir_id(Arvore *, int);
 void pre_ordem(Arvore *);
+//void cliente01();
+void cliente02(Lista **, Arvore *);
 
 // ======= MAIN =======
 
@@ -100,6 +102,7 @@ int main(){
             system("pause");
             break;
         case 3:
+            cliente02(&inicio, raiz);
             break;
         case 4:
             break;
@@ -314,7 +317,10 @@ void pre_ordem(Arvore* raiz){
 }
 
 // CÓDIGO/ID DA ÁRVORE DE DECISÃO:
-void codigo(int id){
+char* codigo(int id){
+    // DECLARAÇÃO DE VARIÁVEIS:
+    char* cidade;
+    cidade = (char*)malloc(TAM*sizeof(char));
     // PERGUNTAS:
     if(id == 2){
         printf("\n| Gosta de parque aquático? |\n");
@@ -351,37 +357,69 @@ void codigo(int id){
     // CIDADES TURÍSTICAS:
     if(id == 1){
         printf("\n Fortaleza");
+        strcpy(cidade, "Fortaleza");
+        return (cidade);
     } else if(id == 3){
         printf("\n Salvador");
+        strcpy(cidade, "Salvador");
+        return (cidade);
     } else if(id == 5){
         printf("\n Brasília");
+        strcpy(cidade, "Brasilia");
+        return (cidade);
     } else if(id == 7){
         printf("\n São Paulo");
+        strcpy(cidade, "Sao Paulo");
+        return (cidade);
     } else if(id == 9){
-        printf("\n SAVANA(Decidir)");
+        printf("\n Nairóbi");
+        strcpy(cidade, "Nairobi");
+        return (cidade);
     } else if(id == 11){
         printf("\n Cairo");
+        strcpy(cidade, "Cairo");
+        return (cidade);
     } else if(id == 13){
         printf("\n Las Vegas");
+        strcpy(cidade, "Las Vegas");
+        return (cidade);
     } else if(id == 15){
         printf("\n Orlando");
+        strcpy(cidade, "Orlando");
+        return (cidade);
     } else if(id == 17){
         printf("\n São Petersburgo");
+        strcpy(cidade, "Sao Petersburgo");
     } else if(id == 19){
         printf("\n Moscou");
+        strcpy(cidade, "Moscou");
+        return (cidade);
     } else if(id == 21){
         printf("\n Roma");
+        strcpy(cidade, "Roma");
+        return (cidade);
     } else if(id == 23){
         printf("\n Nápoles");
+        strcpy(cidade, "Napoles");
+        return (cidade);
     } else if(id == 25){
         printf("\n Santiago");
+        strcpy(cidade, "Santiago");
+        return (cidade);
     } else if(id == 27){
         printf("\n Chengdu");
+        strcpy(cidade, "Chengdu");
+        return (cidade);
     } else if(id == 29){
         printf("\n Macau");
+        strcpy(cidade, "Macau");
+        return (cidade);
     } else if(id == 31){
         printf("\n Nova York");
+        strcpy(cidade, "Nova York");
+        return (cidade);
     }
+    return NULL;
 }
 
 // MONTAR LISTA
@@ -615,6 +653,7 @@ void montar_lista(Lista **inicio){
 }
 
 // CLIENTE DECIDIDO:
+/*
 void cliente01(Lista **inicio){
     imprimir_cidades(*inicio);
 
@@ -625,7 +664,7 @@ void cliente01(Lista **inicio){
 void imprimir_cidades(Lista *inicio){
 
 }
-
+*/
 // CLIENTE INDECISO:
 void cliente02(Lista **inicio, Arvore *raiz){
     // DECLARAÇÃO DE VARIÁVEIS:
@@ -650,6 +689,8 @@ void cliente02(Lista **inicio, Arvore *raiz){
             fgets(resposta, RESP, stdin);
             resposta[strcspn(resposta, "\n")] = '\0';
 
+            printf("\n %s \n", resposta);
+
             if(strcasecmp(resposta, "sim") == 0){
                 raiz = raiz->sim;
             }else if(strcasecmp(resposta, "nao") == 0){
@@ -663,6 +704,9 @@ void cliente02(Lista **inicio, Arvore *raiz){
             printf("\n O destino recomendado foi: ");
             codigo(raiz->id);
             printf("\n Gostaria de manter esse destino para sua viagem? (sim/nao) \n");
+            fgets(resposta, RESP, stdin);
+            resposta[strcspn(resposta, "\n")] = '\0';
+
             if(strcasecmp(resposta, "sim") == 0){
                 manter = 1;
                 break;
@@ -680,6 +724,7 @@ void cliente02(Lista **inicio, Arvore *raiz){
     // INTERANDO NA LISTA: (BOTAR EM UMA FUNÇÃO SEARADA);
     while(atual != NULL){
         if(strcasecmp(codigo(raiz->id), atual->nome) == 0){
+            printf("iterando!\n");
             atual->qtde_turista02 ++;
             auy->qtde_turista02 ++;
         }
@@ -690,6 +735,7 @@ void cliente02(Lista **inicio, Arvore *raiz){
             atual = atual->baixo;
         }
     }
+    system("pause");
 }
 
 
