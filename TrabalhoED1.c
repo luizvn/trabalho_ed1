@@ -134,6 +134,7 @@ int main(){
 
 // ======= FUNÇÕES =======
 
+// ------- FUNÇÕES DO MENU INICIAL -------
 // CRÉDITOS:
 void creditos(){
     system("cls");
@@ -205,6 +206,7 @@ void sobre(){
     system("pause");
 }
 
+// ------- FUNÇÕES DA ÁRVORE DE DECISÃO -------
 // ÁRVORE DE DECISÃO:
 void montar_arvore(Arvore** raiz){
     int n;
@@ -427,6 +429,7 @@ char* codigo(int id){
     return NULL;
 }
 
+// ------- FUNÇÕES DA LISTA DE PAÍSES/CIDADES -------
 // MONTAR LISTA
 void montar_lista(Lista **inicio){
 	Lista *atual, *aux, *ant;
@@ -764,6 +767,7 @@ void cliente01(Lista **inicio){
 
 }
 
+// FUÇÃO DE IMPRIMIR A LISTA
 void imprimir_lista(Lista *inicio){
     Lista *atual, *aux;
     atual = inicio;
@@ -841,26 +845,22 @@ void cliente02(Lista **inicio, Arvore *raiz){
 
     // ITERANDO NA LISTA: (BOTAR EM UMA FUNÇÃO SEARADA);
     while(atual != NULL){
-        printf("\n 1");
         if(strcasecmp(codigo(raiz->id), atual->nome) == 0){
-            printf("\n 2");
             atual->qtde_turista02 ++;
             auy->qtde_turista02 ++;
         }
-        printf("\n 3");
         if(atual->baixo == NULL){
-            printf("\n 4");
             auy = auy->prox;
             atual = auy;
         }else{
-            printf("\n 5");
             atual = atual->baixo;
         }
-        printf("\n 6");
     }
     system("pause");
 }
 
+// ------- FUNÇÕES DE ESTATÍSTICAS -------
+// LISTA DE LOCAIS VISITADOS
 void visitados(Lista *inicio){
     Lista *atual;
     Lista *aux;
