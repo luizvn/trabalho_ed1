@@ -31,7 +31,7 @@ void montar_lista(Lista **);
 void montar_arvore(Arvore **);
 Arvore* inserir_id(Arvore *, int);
 void pre_ordem(Arvore *);
-//void cliente01();
+void cliente01(Lista **);
 void cliente02(Lista **, Arvore *);
 void visitados(Lista *);
 void imprimir_lista(Lista *);
@@ -84,13 +84,13 @@ int main(){
         system("cls");
         printf("\n |====================| VIAGENS ED1 |====================|");
         printf("\n |1 - Estou decidido em qual local escolher              |");
-        printf("\n |2 - ");
-        printf("\n |3 - ");
-        printf("\n |4 - ");
-        printf("\n |5 - ");
-        printf("\n |6 - ");
-        printf("\n |7 - ");
-        printf("\n |8 - ");
+        printf("\n |2 - Sou Indeciso! Não sei que lugar escolher           |");
+        printf("\n |3 - Lista de Paises/Cidades Visitados/Não Visitados    |");
+        printf("\n |4 - Paises Visitados por clientes decididos            |");
+        printf("\n |5 - Paises Visitados por clientes Indecisos            |");
+        printf("\n |6 - Países que não foram Visitados ainda               |");
+        printf("\n |7 - País mais visitado pelo cliente Decidido           |");
+        printf("\n |8 - País mais visitado pelo cliente Ideciso            |");
         printf("\n |9 - Sair do Sistema                                    |");
         printf("\n |=======================================================|");
         printf("\n ESCOLHA A OPÇÃO: ");
@@ -98,21 +98,20 @@ int main(){
 
         switch(op){
         case 1:
+            cliente01(&inicio);
+            system("pause");
             break;
         case 2:
-            pre_ordem(raiz);
+            cliente02(&inicio, raiz);
             system("pause");
             break;
         case 3:
-            cliente02(&inicio, raiz);
-            break;
-        case 4:
             visitados(inicio);
             system("pause");
             break;
+        case 4:
+            break;
         case 5:
-            imprimir_lista(inicio);
-            system("pause");
             break;
         case 6:
             break;
@@ -721,11 +720,47 @@ void montar_lista(Lista **inicio){
 
 // CLIENTE DECIDIDO:
 void cliente01(Lista **inicio){
+    // DECLARAÇÃO DE VARIÁVEIS:
+    char cidade[TAM];
+    int manter = 0;
+    Lista *atual, *aux;
 
-    imprimir_lista(*inicio);
+    atual = *inicio;
+    aux = atual;
 
-    printf("\n ESCOLHA QUAL CIDADE TURÍSRICA VOCÊ DESEJA VISITAR: ");
+    // ESCOLHA DE CIDADE TURÍSTICA:
+    while(manter == 0){
+        system("cls||clear");
 
+        atual = *inicio;
+        aux = atual;
+        imprimir_lista(*inicio);
+
+        printf("\n ESCOLHA QUAL CIDADE TURÍSRICA VOCÊ DESEJA VISITAR: ");
+        fgets(cidade, TAM, stdin);
+        cidade[strcspn(cidade, "\n")] = '\0';
+
+        printf(" %s ", cidade);
+        // ITERANDO:
+        while(atual != NULL){
+            if(strcasecmp(cidade, atual->nome) == 0){
+                atual->qtde_turista01 ++;
+                aux->qtde_turista01 ++;
+                manter = 1;
+                break;
+            }
+            if(atual->baixo == NULL){
+                aux = aux->prox;
+                atual = aux;
+            }else{
+                atual = atual->baixo;
+            }
+        }
+        if(manter == 0){
+            printf("\n Resposta inválida!\n");
+            system("pause");
+        }
+    }
 
 }
 
