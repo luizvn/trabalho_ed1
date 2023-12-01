@@ -33,6 +33,8 @@ Arvore* inserir_id(Arvore *, int);
 void pre_ordem(Arvore *);
 //void cliente01();
 void cliente02(Lista **, Arvore *);
+void visitados(Lista *);
+void imprimir_lista(Lista *);
 
 // ======= MAIN =======
 
@@ -105,8 +107,12 @@ int main(){
             cliente02(&inicio, raiz);
             break;
         case 4:
+            visitados(inicio);
+            system("pause");
             break;
         case 5:
+            imprimir_lista(inicio);
+            system("pause");
             break;
         case 6:
             break;
@@ -424,7 +430,7 @@ char* codigo(int id){
 
 // MONTAR LISTA
 void montar_lista(Lista **inicio){
-	Lista *atual, *aux;
+	Lista *atual, *aux, *ant;
 
     atual = (Lista*)malloc(sizeof(Lista));
 
@@ -435,6 +441,7 @@ void montar_lista(Lista **inicio){
     atual->qtde_turista01 = 0;
     atual->qtde_turista02 = 0;
     atual->prox = NULL;
+    ant = atual;
     atual = atual->prox;
 
     atual = (Lista*)malloc(sizeof(Lista));
@@ -445,6 +452,8 @@ void montar_lista(Lista **inicio){
     atual->qtde_turista01 = 0;
     atual->qtde_turista02 = 0;
     atual->prox = NULL;
+    ant->prox = atual;
+    ant = atual;
     atual = atual->prox;
 
     atual = (Lista*)malloc(sizeof(Lista));
@@ -455,6 +464,8 @@ void montar_lista(Lista **inicio){
     atual->qtde_turista01 = 0;
     atual->qtde_turista02 = 0;
     atual->prox = NULL;
+    ant->prox = atual;
+    ant = atual;
     atual = atual->prox;
 
     atual = (Lista*)malloc(sizeof(Lista));
@@ -465,6 +476,8 @@ void montar_lista(Lista **inicio){
     atual->qtde_turista01 = 0;
     atual->qtde_turista02 = 0;
     atual->prox = NULL;
+    ant->prox = atual;
+    ant = atual;
     atual = atual->prox;
 
     atual = (Lista*)malloc(sizeof(Lista));
@@ -475,6 +488,8 @@ void montar_lista(Lista **inicio){
     atual->qtde_turista01 = 0;
     atual->qtde_turista02 = 0;
     atual->prox = NULL;
+    ant->prox = atual;
+    ant = atual;
     atual = atual->prox;
 
     atual = (Lista*)malloc(sizeof(Lista));
@@ -485,6 +500,8 @@ void montar_lista(Lista **inicio){
     atual->qtde_turista01 = 0;
     atual->qtde_turista02 = 0;
     atual->prox = NULL;
+    ant->prox = atual;
+    ant = atual;
     atual = atual->prox;
 
     atual = (Lista*)malloc(sizeof(Lista));
@@ -495,23 +512,28 @@ void montar_lista(Lista **inicio){
     atual->qtde_turista01 = 0;
     atual->qtde_turista02 = 0;
     atual->prox = NULL;
+    ant->prox = atual;
+    ant = atual;
     atual = atual->prox;
 
     atual = (Lista*)malloc(sizeof(Lista));
 
     //atual = *inicio;
     strcpy(atual->nome, "Quenia");
-    printf(" %s ", atual->nome);
+    printf(" %s \n", atual->nome);
     atual->qtde_turista01 = 0;
     atual->qtde_turista02 = 0;
 
     atual->prox = NULL;
+    ant->prox = atual;
+    ant = atual;
     atual = atual->prox;
 
     *inicio = aux;
 
     atual = *inicio;
     aux = atual;
+    ant = atual;
 
     while(atual != NULL){
         if(strcmp(atual->nome,"Brasil") == 0){
@@ -520,101 +542,138 @@ void montar_lista(Lista **inicio){
 
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Salvador");
+            printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
-
+            ant->baixo = atual;
+            ant = atual;
             atual = atual->baixo;
+
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Fortaleza");
+            printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
+            ant->baixo = atual;
+            ant = atual;
             atual = atual->baixo;
 
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Sao Paulo");
+            printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
+            ant->baixo = atual;
+            ant = atual;
             atual = atual->baixo;
 
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Brasilia");
+            printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
+            ant->baixo = atual;
+            ant = atual;
         } else if(strcmp(atual->nome, "Estados Unidos") == 0){
             atual->baixo = NULL;
             atual = atual->baixo;
 
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Orlando");
+            printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
-
+            ant->baixo = atual;
+            ant = atual;
             atual = atual->baixo;
+
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Las Vegas");
+            printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
+            ant->baixo = atual;
+            ant = atual;
             atual = atual->baixo;
 
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Nova York");
+            printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
+            ant->baixo = atual;
+            ant = atual;
         } else if(strcmp(atual->nome, "China") == 0){
             atual->baixo = NULL;
             atual = atual->baixo;
 
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Chengdu");
+            printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
-
+            ant->baixo = atual;
+            ant = atual;
             atual = atual->baixo;
+
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Macau");
+            printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
+            ant->baixo = atual;
+            ant = atual;
         } else if(strcmp(atual->nome, "Russia") == 0){
             atual->baixo = NULL;
             atual = atual->baixo;
 
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Sao Petersburgo");
+            printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
-
+            ant->baixo = atual;
+            ant = atual;
             atual = atual->baixo;
+
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Moscou");
+            printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
+            ant->baixo = atual;
+            ant = atual;
         } else if(strcmp(atual->nome, "Italia") == 0){
             atual->baixo = NULL;
             atual = atual->baixo;
 
             atual = (Lista*)malloc(sizeof(Lista));
-            strcpy(atual->nome, "Chengdu");
+            strcpy(atual->nome, "Roma");
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
-
+            ant->baixo = atual;
+            ant = atual;
             atual = atual->baixo;
+
             atual = (Lista*)malloc(sizeof(Lista));
-            strcpy(atual->nome, "Macau");
+            strcpy(atual->nome, "Napoles");
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
+            ant->baixo = atual;
+            ant = atual;
         } else if(strcmp(atual->nome, "Egito") == 0){
             atual->baixo = NULL;
             atual = atual->baixo;
@@ -624,6 +683,8 @@ void montar_lista(Lista **inicio){
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
+            ant->baixo = atual;
+            ant = atual;
         } else if(strcmp(atual->nome, "Chile") == 0){
             atual->baixo = NULL;
             atual = atual->baixo;
@@ -633,6 +694,8 @@ void montar_lista(Lista **inicio){
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
+            ant->baixo = atual;
+            ant = atual;
         } else if(strcmp(atual->nome, "Quenia") == 0){
             atual->baixo = NULL;
             atual = atual->baixo;
@@ -642,10 +705,14 @@ void montar_lista(Lista **inicio){
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
+            ant->baixo = atual;
+            ant = atual;
         }
         atual = aux;
         aux = aux->prox;
         atual = atual->prox;
+        ant = atual;
+        printf("\n 2");
     }
 
 	printf("\n Lista inicializada! \n");
@@ -701,8 +768,8 @@ void cliente02(Lista **inicio, Arvore *raiz){
             }
         }
         while(1){
-            printf("\n O destino recomendado foi: ");
-            codigo(raiz->id);
+            printf("\n O destino recomendado foi: %s ", codigo(raiz->id));
+            //codigo(raiz->id);
             printf("\n Gostaria de manter esse destino para sua viagem? (sim/nao) \n");
             fgets(resposta, RESP, stdin);
             resposta[strcspn(resposta, "\n")] = '\0';
@@ -723,19 +790,70 @@ void cliente02(Lista **inicio, Arvore *raiz){
 
     // INTERANDO NA LISTA: (BOTAR EM UMA FUNÇÃO SEARADA);
     while(atual != NULL){
+        printf("\n 1");
         if(strcasecmp(codigo(raiz->id), atual->nome) == 0){
-            printf("iterando!\n");
+            printf("\n 2");
             atual->qtde_turista02 ++;
             auy->qtde_turista02 ++;
         }
+        printf("\n 3");
         if(atual->baixo == NULL){
+            printf("\n 4");
             auy = auy->prox;
             atual = auy;
         }else{
+            printf("\n 5");
             atual = atual->baixo;
         }
+        printf("\n 6");
     }
     system("pause");
 }
 
+void visitados(Lista *inicio){
+    Lista *atual;
+    Lista *aux;
+    atual = inicio;
+    aux = atual;
 
+    if(atual == NULL){
+        printf("\n Lista Vazia!\n");
+        system("pause");
+        return;
+    }
+
+    while(atual != NULL){
+        printf("\n ====================");
+        printf("\n Nome: %s       ", atual->nome);
+        printf("\n Cliente 01: %d ", atual->qtde_turista01);
+        printf("\n Cliente 02: %d ", atual->qtde_turista02);
+        printf("\n --------------------");
+        if(atual->baixo == NULL){
+            aux = aux->prox;
+            atual = aux;
+        }else{
+            atual = atual->baixo;
+        }
+    }
+    printf("\n ====================\n");
+    system("pause");
+}
+
+void imprimir_lista(Lista *inicio){
+    Lista *atual, *aux;
+    atual = inicio;
+
+    while(atual != NULL){
+        aux = atual;
+        printf("\n %s :", atual->nome);
+        if(atual->baixo != NULL){
+            while(atual->baixo != NULL){
+                atual = atual->baixo;
+                printf(" %s ", atual->nome);
+            }
+            atual = aux;
+        }
+        atual = atual->prox;
+    }
+    printf("\n ");
+}
