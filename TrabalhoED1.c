@@ -720,18 +720,36 @@ void montar_lista(Lista **inicio){
 }
 
 // CLIENTE DECIDIDO:
-/*
 void cliente01(Lista **inicio){
-    imprimir_cidades(*inicio);
+    char cidade[TAM];
+
+    imprimir_lista(*inicio);
 
     printf("\n ESCOLHA QUAL CIDADE TURÍSRICA VOCÊ DESEJA VISITAR: ");
+    //fgets()
+
 
 }
 
-void imprimir_cidades(Lista *inicio){
+void imprimir_lista(Lista *inicio){
+    Lista *atual, *aux;
+    atual = inicio;
 
+    while(atual != NULL){
+        aux = atual;
+        printf("\n %s :", atual->nome);
+        if(atual->baixo != NULL){
+            while(atual->baixo != NULL){
+                atual = atual->baixo;
+                printf(" %s ", atual->nome);
+            }
+            atual = aux;
+        }
+        atual = atual->prox;
+    }
+    printf("\n ");
 }
-*/
+
 // CLIENTE INDECISO:
 void cliente02(Lista **inicio, Arvore *raiz){
     // DECLARAÇÃO DE VARIÁVEIS:
@@ -839,21 +857,4 @@ void visitados(Lista *inicio){
     system("pause");
 }
 
-void imprimir_lista(Lista *inicio){
-    Lista *atual, *aux;
-    atual = inicio;
 
-    while(atual != NULL){
-        aux = atual;
-        printf("\n %s :", atual->nome);
-        if(atual->baixo != NULL){
-            while(atual->baixo != NULL){
-                atual = atual->baixo;
-                printf(" %s ", atual->nome);
-            }
-            atual = aux;
-        }
-        atual = atual->prox;
-    }
-    printf("\n ");
-}
