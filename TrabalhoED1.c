@@ -721,12 +721,10 @@ void montar_lista(Lista **inicio){
 
 // CLIENTE DECIDIDO:
 void cliente01(Lista **inicio){
-    char cidade[TAM];
 
     imprimir_lista(*inicio);
 
     printf("\n ESCOLHA QUAL CIDADE TURÍSRICA VOCÊ DESEJA VISITAR: ");
-    //fgets()
 
 
 }
@@ -806,7 +804,7 @@ void cliente02(Lista **inicio, Arvore *raiz){
         }
     }
 
-    // INTERANDO NA LISTA: (BOTAR EM UMA FUNÇÃO SEARADA);
+    // ITERANDO NA LISTA: (BOTAR EM UMA FUNÇÃO SEARADA);
     while(atual != NULL){
         printf("\n 1");
         if(strcasecmp(codigo(raiz->id), atual->nome) == 0){
