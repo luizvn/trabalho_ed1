@@ -35,6 +35,13 @@ void cliente01(Lista **);
 void cliente02(Lista **, Arvore *);
 void visitados(Lista *);
 void imprimir_lista(Lista *);
+void visitados(Lista *);
+void visitados_decididos(Lista *);
+void visitados_indecisos(Lista *);
+void nao_visitados(Lista *);
+void sim_visitados(Lista *);
+void mais_visitado_indeciso(Lista *);
+void mais_visitado_decidido(Lista *);
 
 // ======= MAIN =======
 
@@ -89,12 +96,14 @@ int main(){
         printf("\n |4 - Paises Visitados por clientes decididos            |");
         printf("\n |5 - Paises Visitados por clientes Indecisos            |");
         printf("\n |6 - Países que não foram Visitados ainda               |");
-        printf("\n |7 - País mais visitado pelo cliente Decidido           |");
-        printf("\n |8 - País mais visitado pelo cliente Ideciso            |");
-        printf("\n |9 - Sair do Sistema                                    |");
+        printf("\n |7 - Países que foram Visitados                         |");
+        printf("\n |8 - País mais Visitado pelo cliente Decidido           |");
+        printf("\n |9 - País mais Visitado pelo cliente Ideciso            |");
+        printf("\n |10 - Sair do Sistema                                   |");
         printf("\n |=======================================================|");
         printf("\n ESCOLHA A OPÇÃO: ");
         scanf("%d", &op);
+        getchar();
 
         switch(op){
         case 1:
@@ -110,24 +119,39 @@ int main(){
             system("pause");
             break;
         case 4:
+            visitados_decididos(inicio);
+            system("pause");
             break;
         case 5:
+            visitados_indecisos(inicio);
+            system("pause");
             break;
         case 6:
+            nao_visitados(inicio);
+            system("pause");
             break;
         case 7:
+            sim_visitados(inicio);
+            system("pause");
             break;
         case 8:
+            mais_visitado_decidido(inicio);
+            system("pause");
             break;
         case 9:
+            mais_visitado_indeciso(inicio);
+            system("pause");
+            break;
+        case 10:
             printf("\n Saindo do sistema...\n");
             system("pause");
             break;
         default:
             printf("\n Opção Inválida!\n");
             system("pause");
+            break;
         }
-    }while(op != 9);
+    }while(op != 10);
 
     return 0;
 }
@@ -397,6 +421,7 @@ char* codigo(int id){
     } else if(id == 17){
         printf("\n São Petersburgo");
         strcpy(cidade, "Sao Petersburgo");
+        return (cidade);
     } else if(id == 19){
         printf("\n Moscou");
         strcpy(cidade, "Moscou");
@@ -716,9 +741,6 @@ void montar_lista(Lista **inicio){
         ant = atual;
         printf("\n 2");
     }
-
-	printf("\n Lista inicializada! \n");
-	system("pause");
 }
 
 // CLIENTE DECIDIDO:
@@ -746,16 +768,20 @@ void cliente01(Lista **inicio){
         printf(" %s ", cidade);
         // ITERANDO:
         while(atual != NULL){
+            printf("\n 1");
             if(strcasecmp(cidade, atual->nome) == 0){
+                printf("\n 2");
                 atual->qtde_turista01 ++;
                 aux->qtde_turista01 ++;
                 manter = 1;
                 break;
             }
             if(atual->baixo == NULL){
+                printf("\n 3");
                 aux = aux->prox;
                 atual = aux;
             }else{
+                printf("\n 4");
                 atual = atual->baixo;
             }
         }
@@ -810,6 +836,7 @@ void cliente02(Lista **inicio, Arvore *raiz){
             codigo(raiz->id);
             fgets(resposta, RESP, stdin);
             resposta[strcspn(resposta, "\n")] = '\0';
+            getchar();
 
             printf("\n %s \n", resposta);
 
@@ -872,13 +899,39 @@ void visitados(Lista *inicio){
         system("pause");
         return;
     }
-
+    printf("\n ====================");
     while(atual != NULL){
-        printf("\n ====================");
         printf("\n Nome: %s       ", atual->nome);
         printf("\n Cliente 01: %d ", atual->qtde_turista01);
         printf("\n Cliente 02: %d ", atual->qtde_turista02);
-        printf("\n --------------------");
+        if(atual->baixo == NULL){
+            aux = aux->prox;
+            atual = aux;
+            printf("\n ====================");
+        }else{
+            atual = atual->baixo;
+            printf("\n --------------------");
+        }
+    }
+    printf("\n ====================\n");
+    system("pause");
+}
+
+// LISTA DE PAISES E SÍTIOS VISITADOS PELOS CLIENTES DECIDIDOS:
+void visitados_decididos(Lista *inicio){
+    // DECLARAÇÃO DE VARIÁVEIS:
+    Lista *atual, *aux;
+    int visitados = 0;
+
+    atual = inicio;
+    aux = atual;
+
+    // IMPRIMINDO AS INFORMAÇÕES:
+    while(atual != NULL){
+        if(atual->qtde_turista01 > 0){
+            printf(" %s ", atual->nome);
+            visitados = 1;
+        }
         if(atual->baixo == NULL){
             aux = aux->prox;
             atual = aux;
@@ -886,8 +939,151 @@ void visitados(Lista *inicio){
             atual = atual->baixo;
         }
     }
-    printf("\n ====================\n");
-    system("pause");
+    if(visitados == 0){
+        printf("\n Nenhum país foi visitado por clientes decididos");
+    }
+    printf("\n ");
 }
 
+// LISTA DE PAISES VISITADOS PELOS CLIENTES INDECISOS:
+void visitados_indecisos(Lista *inicio){
+    // DECLARAÇÃO DE VARIÁVEIS:
+    Lista *atual, *aux;
+    int visitados = 0;
+
+    atual = inicio;
+    aux = atual;
+
+    // IMPRIMINDO AS INFORMAÇÕES:
+    while(atual != NULL){
+        if(atual->qtde_turista02 > 0){
+            printf(" %s ", atual->nome);
+            visitados = 1;
+        }
+        if(atual->baixo == NULL){
+            aux = aux->prox;
+            atual = aux;
+        }else{
+            atual = atual->baixo;
+        }
+    }
+    if(visitados == 0){
+        printf("\n Nenehum país foi visitado por clientes indecisos \n");
+    }
+    printf("\n ");
+}
+
+// LISTA DE PAISES/CIDADES NÃO VISITADOS
+void nao_visitados(Lista *inicio){
+    // DECLARAÇÃO DE VARIÁVEIS:
+    Lista *atual, *aux;
+    int visitados = 1;
+
+    atual = inicio;
+    aux = atual;
+
+    printf("\n");
+    // IMPRIMINDO AS INFORMAÇÕES:
+    while(atual != NULL){
+        if((atual->qtde_turista01) == 0 && (atual->qtde_turista02 == 0)){
+            printf(" %s \n", atual->nome);
+            visitados = 0;
+        }
+        if(atual->baixo == NULL){
+            aux = aux->prox;
+            atual = aux;
+        }else{
+            atual = atual->baixo;
+        }
+    }
+    if(visitados == 1){
+        printf("\n Todos os países foram visitados \n");
+    }
+}
+
+// LISTA DE PAISES MAIS VISITADOS PELOS CLIENTE DECIDIDOS:
+void mais_visitado_decidido(Lista *inicio){
+    // DECLARAÇÃO DE VARIÁVEIS:
+    Lista *atual, *aux, *maior;
+    int maior_int = 0;
+
+    atual = inicio;
+    aux = atual;
+
+    // IMPRIMINDO AS INFORMAÇÕES:
+    while(atual != NULL){
+        if(atual->qtde_turista01 > maior_int){
+            maior_int = atual->qtde_turista01;
+            maior = atual;
+        }
+        if(atual->baixo == NULL){
+            aux = aux->prox;
+            atual = aux;
+        }else{
+            atual = atual->baixo;
+        }
+    }
+    if(maior_int == 0){
+        printf("\n Nenhum país foi visitado!\n");
+    }else{
+        printf("\n O mais visitado foi: %s \n", maior->nome);
+    }
+}
+
+// LISTA DE PAISES MAIS VISITADOS PELOS CLIENTES INDECISOS:
+void mais_visitado_indeciso(Lista *inicio){
+    // DECLARAÇÃO DE VARIÁVEIS:
+    Lista *atual, *aux, *maior;
+    int maior_int = 0;
+
+    atual = inicio;
+    aux = atual;
+
+    // IMPRIMINDO AS INFORMAÇÕES:
+    while(atual != NULL){
+        if(atual->qtde_turista02 > maior_int){
+            maior_int = atual->qtde_turista02;
+            maior = atual;
+        }
+        if(atual->baixo == NULL){
+            aux = aux->prox;
+            atual = aux;
+        }else{
+            atual = atual->baixo;
+        }
+    }
+    if(maior_int == 0){
+        printf("\n Nenhum país foi visitado!\n");
+    }else{
+        printf("\n %s \n", maior->nome);
+    }
+}
+
+// LISTA DE PAISES QUE FORAM VISITADOS:
+void sim_visitados(Lista *inicio){
+    // DECLARAÇÃO DE VARIÁVEIS:
+    Lista *atual, *aux;
+    int visitado = 0;
+
+    atual = inicio;
+    aux = atual;
+    printf("\n");
+
+    // IMPRIMINDO AS INFORMAÇÕES:
+    while(atual != NULL){
+        if((atual->qtde_turista01) > 0 || (atual->qtde_turista02 > 0)){
+            printf(" %s \n", atual->nome);
+            visitado = 1;
+        }
+        if(atual->baixo == NULL){
+            aux = aux->prox;
+            atual = aux;
+        }else{
+            atual = atual->baixo;
+        }
+    }
+    if(visitado == 0){
+        printf("\n Nenhum país foi visitado ainda!\n");
+    }
+}
 
