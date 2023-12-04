@@ -35,13 +35,14 @@ void cliente01(Lista **);
 void cliente02(Lista **, Arvore *);
 void visitados(Lista *);
 void imprimir_lista(Lista *);
-void visitados(Lista *);
 void visitados_decididos(Lista *);
 void visitados_indecisos(Lista *);
 void nao_visitados(Lista *);
 void sim_visitados(Lista *);
 void mais_visitado_indeciso(Lista *);
 void mais_visitado_decidido(Lista *);
+void liberar_arvore(Arvore*);
+void liberar_lista(Lista*);
 
 // ======= MAIN =======
 
@@ -58,8 +59,8 @@ int main(){
     // MONTANDO LISTA E ÁRVORE DE DECISÃO:
     montar_lista(&inicio);
     montar_arvore(&raiz);
+   // system("pause");
 
-    system("pause");
     // MENU INCIAL:
     do{
         system("cls");
@@ -89,18 +90,18 @@ int main(){
 
     do{
         system("cls");
-        printf("\n |====================| VIAGENS ED1 |====================|");
-        printf("\n |1 - Estou decidido em qual local escolher              |");
-        printf("\n |2 - Sou Indeciso! Não sei que lugar escolher           |");
-        printf("\n |3 - Lista de Paises/Cidades Visitados/Não Visitados    |");
-        printf("\n |4 - Paises Visitados por clientes decididos            |");
-        printf("\n |5 - Paises Visitados por clientes Indecisos            |");
-        printf("\n |6 - Países que não foram Visitados ainda               |");
-        printf("\n |7 - Países que foram Visitados                         |");
-        printf("\n |8 - País mais Visitado pelo cliente Decidido           |");
-        printf("\n |9 - País mais Visitado pelo cliente Ideciso            |");
-        printf("\n |10 - Sair do Sistema                                   |");
-        printf("\n |=======================================================|");
+        printf("\n |=========================| VIAGENS ED1 |=========================|");
+        printf("\n |1 - Estou decidido em qual local escolher                        |");
+        printf("\n |2 - Sou Indeciso! Não sei que lugar escolher                     |");
+        printf("\n |3 - Lista de Paises/Cidades Visitados/Não Visitados              |");
+        printf("\n |4 - Paises Visitados por clientes decididos                      |");
+        printf("\n |5 - Paises e sítios turísticos Visitados por clientes Indecisos  |");
+        printf("\n |6 - Países que não foram Visitados ainda                         |");
+        printf("\n |7 - Países que foram Visitados                                   |");
+        printf("\n |8 - País e sítio turístico mais Visitado pelo cliente Decidido   |");
+        printf("\n |9 - País e sítio turístico mais Visitado pelo cliente Ideciso    |");
+        printf("\n |10 - Sair do Sistema                                             |");
+        printf("\n |=================================================================|");
         printf("\n ESCOLHA A OPÇÃO: ");
         scanf("%d", &op);
         getchar();
@@ -144,6 +145,8 @@ int main(){
             break;
         case 10:
             printf("\n Saindo do sistema...\n");
+            void liberar_arvore(raiz);
+			void liberar_lista(inicio);
             system("pause");
             break;
         default:
@@ -387,67 +390,67 @@ char* codigo(int id){
 
     // CIDADES TURÍSTICAS:
     if(id == 1){
-        printf("\n Fortaleza");
+       // printf("\n Fortaleza");
         strcpy(cidade, "Fortaleza");
         return (cidade);
     } else if(id == 3){
-        printf("\n Salvador");
+       // printf("\n Salvador");
         strcpy(cidade, "Salvador");
         return (cidade);
     } else if(id == 5){
-        printf("\n Brasília");
+      //  printf("\n Brasília");
         strcpy(cidade, "Brasilia");
         return (cidade);
     } else if(id == 7){
-        printf("\n São Paulo");
+      // printf("\n São Paulo");
         strcpy(cidade, "Sao Paulo");
         return (cidade);
     } else if(id == 9){
-        printf("\n Nairóbi");
+      //  printf("\n Nairóbi");
         strcpy(cidade, "Nairobi");
         return (cidade);
     } else if(id == 11){
-        printf("\n Cairo");
+      //  printf("\n Cairo");
         strcpy(cidade, "Cairo");
         return (cidade);
     } else if(id == 13){
-        printf("\n Las Vegas");
+      //  printf("\n Las Vegas");
         strcpy(cidade, "Las Vegas");
         return (cidade);
     } else if(id == 15){
-        printf("\n Orlando");
+      //  printf("\n Orlando");
         strcpy(cidade, "Orlando");
         return (cidade);
     } else if(id == 17){
-        printf("\n São Petersburgo");
+      //  printf("\n São Petersburgo");
         strcpy(cidade, "Sao Petersburgo");
         return (cidade);
     } else if(id == 19){
-        printf("\n Moscou");
+      //  printf("\n Moscou");
         strcpy(cidade, "Moscou");
         return (cidade);
     } else if(id == 21){
-        printf("\n Roma");
+      //  printf("\n Roma");
         strcpy(cidade, "Roma");
         return (cidade);
     } else if(id == 23){
-        printf("\n Nápoles");
+      //  printf("\n Nápoles");
         strcpy(cidade, "Napoles");
         return (cidade);
     } else if(id == 25){
-        printf("\n Santiago");
+      //  printf("\n Santiago");
         strcpy(cidade, "Santiago");
         return (cidade);
     } else if(id == 27){
-        printf("\n Chengdu");
+      //  printf("\n Chengdu");
         strcpy(cidade, "Chengdu");
         return (cidade);
     } else if(id == 29){
-        printf("\n Macau");
+      //  printf("\n Macau");
         strcpy(cidade, "Macau");
         return (cidade);
     } else if(id == 31){
-        printf("\n Nova York");
+      //  printf("\n Nova York");
         strcpy(cidade, "Nova York");
         return (cidade);
     }
@@ -464,7 +467,7 @@ void montar_lista(Lista **inicio){
     aux = atual;
 
     strcpy(atual->nome, "Brasil");
-    printf(" %s ", atual->nome);
+   // printf(" %s ", atual->nome);
     atual->qtde_turista01 = 0;
     atual->qtde_turista02 = 0;
     atual->prox = NULL;
@@ -475,7 +478,7 @@ void montar_lista(Lista **inicio){
 
     //atual = *inicio;
     strcpy(atual->nome, "Estados Unidos");
-    printf(" %s ", atual->nome);
+ //   printf(" %s ", atual->nome);
     atual->qtde_turista01 = 0;
     atual->qtde_turista02 = 0;
     atual->prox = NULL;
@@ -487,7 +490,7 @@ void montar_lista(Lista **inicio){
 
     //atual = *inicio;
     strcpy(atual->nome, "China");
-    printf(" %s ", atual->nome);
+  //  printf(" %s ", atual->nome);
     atual->qtde_turista01 = 0;
     atual->qtde_turista02 = 0;
     atual->prox = NULL;
@@ -499,7 +502,7 @@ void montar_lista(Lista **inicio){
 
     //atual = *inicio;
     strcpy(atual->nome, "Russia");
-    printf(" %s ", atual->nome);
+ //   printf(" %s ", atual->nome);
     atual->qtde_turista01 = 0;
     atual->qtde_turista02 = 0;
     atual->prox = NULL;
@@ -511,7 +514,7 @@ void montar_lista(Lista **inicio){
 
     //atual = *inicio;
     strcpy(atual->nome, "Italia");
-    printf(" %s ", atual->nome);
+ //   printf(" %s ", atual->nome);
     atual->qtde_turista01 = 0;
     atual->qtde_turista02 = 0;
     atual->prox = NULL;
@@ -523,7 +526,7 @@ void montar_lista(Lista **inicio){
 
     //atual = *inicio;
     strcpy(atual->nome, "Egito");
-    printf(" %s ", atual->nome);
+ //   printf(" %s ", atual->nome);
     atual->qtde_turista01 = 0;
     atual->qtde_turista02 = 0;
     atual->prox = NULL;
@@ -535,7 +538,7 @@ void montar_lista(Lista **inicio){
 
     //atual = *inicio;
     strcpy(atual->nome, "Chile");
-    printf(" %s ", atual->nome);
+  //  printf(" %s ", atual->nome);
     atual->qtde_turista01 = 0;
     atual->qtde_turista02 = 0;
     atual->prox = NULL;
@@ -547,7 +550,7 @@ void montar_lista(Lista **inicio){
 
     //atual = *inicio;
     strcpy(atual->nome, "Quenia");
-    printf(" %s \n", atual->nome);
+ //   printf(" %s \n", atual->nome);
     atual->qtde_turista01 = 0;
     atual->qtde_turista02 = 0;
 
@@ -569,7 +572,7 @@ void montar_lista(Lista **inicio){
 
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Salvador");
-            printf(" %s ", atual->nome);
+        //    printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
@@ -579,7 +582,7 @@ void montar_lista(Lista **inicio){
 
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Fortaleza");
-            printf(" %s ", atual->nome);
+         //   printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
@@ -589,7 +592,7 @@ void montar_lista(Lista **inicio){
 
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Sao Paulo");
-            printf(" %s ", atual->nome);
+         //   printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
@@ -599,7 +602,7 @@ void montar_lista(Lista **inicio){
 
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Brasilia");
-            printf(" %s ", atual->nome);
+         //   printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
@@ -611,7 +614,7 @@ void montar_lista(Lista **inicio){
 
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Orlando");
-            printf(" %s ", atual->nome);
+         //   printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
@@ -621,7 +624,7 @@ void montar_lista(Lista **inicio){
 
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Las Vegas");
-            printf(" %s ", atual->nome);
+        //    printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
@@ -631,7 +634,7 @@ void montar_lista(Lista **inicio){
 
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Nova York");
-            printf(" %s ", atual->nome);
+        //    printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
@@ -643,7 +646,7 @@ void montar_lista(Lista **inicio){
 
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Chengdu");
-            printf(" %s ", atual->nome);
+       //     printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
@@ -653,7 +656,7 @@ void montar_lista(Lista **inicio){
 
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Macau");
-            printf(" %s ", atual->nome);
+        //    printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
@@ -665,7 +668,7 @@ void montar_lista(Lista **inicio){
 
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Sao Petersburgo");
-            printf(" %s ", atual->nome);
+        //    printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
@@ -675,7 +678,7 @@ void montar_lista(Lista **inicio){
 
             atual = (Lista*)malloc(sizeof(Lista));
             strcpy(atual->nome, "Moscou");
-            printf(" %s ", atual->nome);
+        //    printf(" %s ", atual->nome);
             atual->qtde_turista01 = 0;
             atual->qtde_turista02 = 0;
             atual->baixo = NULL;
@@ -739,7 +742,7 @@ void montar_lista(Lista **inicio){
         aux = aux->prox;
         atual = atual->prox;
         ant = atual;
-        printf("\n 2");
+     //   printf("\n 2");
     }
 }
 
@@ -855,6 +858,7 @@ void cliente02(Lista **inicio, Arvore *raiz){
             printf("\n Gostaria de manter esse destino para sua viagem? (sim/nao) \n");
             fgets(resposta, RESP, stdin);
             resposta[strcspn(resposta, "\n")] = '\0';
+            getchar();
 
             if(strcasecmp(resposta, "sim") == 0){
                 manter = 1;
@@ -932,12 +936,13 @@ void visitados_decididos(Lista *inicio){
             printf(" %s ", atual->nome);
             visitados = 1;
         }
-        if(atual->baixo == NULL){
+        atual = atual->prox;
+       /* if(atual->baixo == NULL){
             aux = aux->prox;
-            atual = aux;
+            atual = aux; 
         }else{
             atual = atual->baixo;
-        }
+        }*/
     }
     if(visitados == 0){
         printf("\n Nenhum país foi visitado por clientes decididos");
@@ -945,7 +950,7 @@ void visitados_decididos(Lista *inicio){
     printf("\n ");
 }
 
-// LISTA DE PAISES VISITADOS PELOS CLIENTES INDECISOS:
+// LISTA DE PAISES E SÍTIOS TURÍSTICOS VISITADOS PELOS CLIENTES INDECISOS:
 void visitados_indecisos(Lista *inicio){
     // DECLARAÇÃO DE VARIÁVEIS:
     Lista *atual, *aux;
@@ -953,11 +958,12 @@ void visitados_indecisos(Lista *inicio){
 
     atual = inicio;
     aux = atual;
+    printf("\n");
 
     // IMPRIMINDO AS INFORMAÇÕES:
     while(atual != NULL){
         if(atual->qtde_turista02 > 0){
-            printf(" %s ", atual->nome);
+            printf(" %s \n", atual->nome);
             visitados = 1;
         }
         if(atual->baixo == NULL){
@@ -968,7 +974,7 @@ void visitados_indecisos(Lista *inicio){
         }
     }
     if(visitados == 0){
-        printf("\n Nenehum país foi visitado por clientes indecisos \n");
+        printf("\n Nenhum país ou sítio turístico foi visitado por clientes indecisos \n");
     }
     printf("\n ");
 }
@@ -989,12 +995,13 @@ void nao_visitados(Lista *inicio){
             printf(" %s \n", atual->nome);
             visitados = 0;
         }
-        if(atual->baixo == NULL){
+        atual = atual->prox;
+      /*  if(atual->baixo == NULL){
             aux = aux->prox;
             atual = aux;
         }else{
             atual = atual->baixo;
-        }
+        } */
     }
     if(visitados == 1){
         printf("\n Todos os países foram visitados \n");
@@ -1002,7 +1009,7 @@ void nao_visitados(Lista *inicio){
 }
 
 // LISTA DE PAISES MAIS VISITADOS PELOS CLIENTE DECIDIDOS:
-void mais_visitado_decidido(Lista *inicio){
+/* void mais_visitado_decidido(Lista *inicio){
     // DECLARAÇÃO DE VARIÁVEIS:
     Lista *atual, *aux, *maior;
     int maior_int = 0;
@@ -1026,36 +1033,261 @@ void mais_visitado_decidido(Lista *inicio){
     if(maior_int == 0){
         printf("\n Nenhum país foi visitado!\n");
     }else{
-        printf("\n O mais visitado foi: %s \n", maior->nome);
+        printf("\n O(s) país(es) mais visitado(s) foi: %s \n", maior->nome);
     }
-}
-
-// LISTA DE PAISES MAIS VISITADOS PELOS CLIENTES INDECISOS:
-void mais_visitado_indeciso(Lista *inicio){
+} */
+	
+void mais_visitado_decidido(Lista *inicio){
     // DECLARAÇÃO DE VARIÁVEIS:
-    Lista *atual, *aux, *maior;
+    Lista *atual, *aux;
+    Lista *maiores_paises[20]; // Usando um array para armazenar os países com a maior quantidade de turistas
+    Lista *maiores_cidades[20];
     int maior_int = 0;
+    int contador_p = 0;
+    int contador_c = 0;
 
     atual = inicio;
     aux = atual;
 
-    // IMPRIMINDO AS INFORMAÇÕES:
+    // ENCONTRANDO A MAIOR QUANTIDADE DE TURISTAS:
     while(atual != NULL){
-        if(atual->qtde_turista02 > maior_int){
-            maior_int = atual->qtde_turista02;
-            maior = atual;
-        }
-        if(atual->baixo == NULL){
+        if(atual->qtde_turista01 > maior_int){
+            maior_int = atual->qtde_turista01;
+            maiores_paises[0] = atual; // Se encontrarmos uma nova maior quantidade, limpamos a lista e armazenamos o novo país
+            contador_p = 1;
+        } /* else if (atual->qtde_turista01 == maior_int) {
+            maiores[contador] = atual; // Se a quantidade for igual à máxima, adicionamos o país ao array
+            contador++;
+        } */
+		atual = atual->prox;
+       /* if(atual->baixo == NULL){
             aux = aux->prox;
             atual = aux;
         }else{
             atual = atual->baixo;
-        }
+        } */
     }
+    
+    atual = inicio;
+    
+	while(atual != NULL){
+		if(atual->qtde_turista01 == maior_int){
+			atual = atual->prox;
+			break;
+		}
+		atual = atual->prox;
+	}
+	while(atual != NULL){
+		if(atual->qtde_turista01 == maior_int){
+			maiores_paises[contador_p] = atual;
+			contador_p++;
+		}
+		atual = atual->prox;
+	}
+	
+	maior_int = 0;
+    atual = inicio->baixo;
+    
+    while(atual != NULL){
+        if(atual->qtde_turista01 > maior_int){
+            maior_int = atual->qtde_turista01;
+            maiores_cidades[0] = atual; // Se encontrarmos uma nova maior quantidade, limpamos a lista e armazenamos o novo país
+            contador_c = 1;
+        }
+        if(atual->baixo == NULL){
+            aux = aux->prox;
+            if(aux != NULL){
+            	atual = aux->baixo;
+			}
+			else{
+				atual = NULL;
+			}
+        }else{
+            atual = atual->baixo;
+        } 
+    }
+    
+    atual = inicio->baixo;
+    aux = inicio;
+    
+    while(atual != NULL){
+		if(atual->qtde_turista01 == maior_int){
+			atual = atual->baixo;
+			break;
+		}
+        if(atual->baixo == NULL){
+            aux = aux->prox;
+            if(aux != NULL){
+            	atual = aux->baixo;
+			}
+			else{
+				atual = NULL;
+			}
+        }else{
+            atual = atual->baixo;
+        }
+	}
+	while(atual != NULL){
+		if(atual->qtde_turista01 == maior_int){
+			maiores_cidades[contador_c] = atual;
+			contador_c++;
+		}
+		if(atual->baixo == NULL){
+            aux = aux->prox;
+            if(aux != NULL){
+            	atual = aux->baixo;
+			}
+			else{
+				atual = NULL;
+			}
+        }else{
+            atual = atual->baixo;
+        }
+	}
+
+    // IMPRIMINDO OS PAÍSES COM A MAIOR QUANTIDADE DE TURISTAS:
     if(maior_int == 0){
         printf("\n Nenhum país foi visitado!\n");
     }else{
-        printf("\n %s \n", maior->nome);
+    	int i, j;
+        printf("\n O(s) país(es) mais visitado(s) foi(am):\n");
+        for (i = 0; i < contador_p; i++) {
+            printf(" - %s\n", maiores_paises[i]->nome);
+        }
+        printf("\n");
+        printf("\n O(s) sítio(s) turístico(s) mais visitado(s) foi(am):\n");
+        for (j = 0; j < contador_c; j++) {
+            printf(" - %s\n", maiores_cidades[j]->nome);
+        }
+    }
+}
+
+	
+
+// LISTA DE PAISES MAIS VISITADOS PELOS CLIENTES INDECISOS:
+void mais_visitado_indeciso(Lista *inicio){
+    // DECLARAÇÃO DE VARIÁVEIS:
+    Lista *atual, *aux;
+    Lista *maiores_paises[20]; // Usando um array para armazenar os países com a maior quantidade de turistas
+    Lista *maiores_cidades[20];
+    int maior_int = 0;
+    int contador_p = 0;
+    int contador_c = 0;
+
+    atual = inicio;
+    aux = atual;
+
+    // ENCONTRANDO A MAIOR QUANTIDADE DE TURISTAS:
+    while(atual != NULL){
+        if(atual->qtde_turista02 > maior_int){
+            maior_int = atual->qtde_turista02;
+            maiores_paises[0] = atual; // Se encontrarmos uma nova maior quantidade, limpamos a lista e armazenamos o novo país
+            contador_p = 1;
+        } /* else if (atual->qtde_turista02 == maior_int) {
+            maiores[contador] = atual; // Se a quantidade for igual à máxima, adicionamos o país ao array
+            contador++;
+        } */
+		atual = atual->prox;
+       /* if(atual->baixo == NULL){
+            aux = aux->prox;
+            atual = aux;
+        }else{
+            atual = atual->baixo;
+        } */
+    }
+    atual = inicio;
+    while(atual != NULL){
+		if(atual->qtde_turista02 == maior_int){
+			atual = atual->prox;
+			break;
+		}
+		atual = atual->prox;
+	}
+	while(atual != NULL){
+		if(atual->qtde_turista02 == maior_int){
+			maiores_paises[contador_p] = atual;
+			contador_p++;
+		}
+		atual = atual->prox;
+	}
+	
+	maior_int = 0;
+    atual = inicio->baixo;
+    
+    while(atual != NULL){
+        if(atual->qtde_turista02 > maior_int){
+            maior_int = atual->qtde_turista02;
+            maiores_cidades[0] = atual; // Se encontrarmos uma nova maior quantidade, limpamos a lista e armazenamos o novo país
+            contador_c = 1;
+        }
+        if(atual->baixo == NULL){
+            aux = aux->prox;
+            if(aux != NULL){
+            	atual = aux->baixo;
+			}
+			else{
+				atual = NULL;
+			}
+        }else{
+            atual = atual->baixo;
+        } 
+    }
+    
+    atual = inicio->baixo;
+    aux = inicio;
+    
+    while(atual != NULL){
+		if(atual->qtde_turista02 == maior_int){
+			atual = atual->baixo;
+			break;
+		}
+        if(atual->baixo == NULL){
+            aux = aux->prox;
+            if(aux != NULL){
+            	atual = aux->baixo;
+			}
+			else{
+				atual = NULL;
+			}
+        }else{
+            atual = atual->baixo;
+        }
+	}
+	while(atual != NULL){
+		if(atual->qtde_turista02 == maior_int){
+			maiores_cidades[contador_c] = atual;
+			contador_c++;
+		}
+		if(atual->baixo == NULL){
+            aux = aux->prox;
+            if(aux != NULL){
+            	atual = aux->baixo;
+			}
+			else{
+				atual = NULL;
+			}
+        }else{
+            atual = atual->baixo;
+        }
+	}
+    
+    
+	
+
+    // IMPRIMINDO OS PAÍSES COM A MAIOR QUANTIDADE DE TURISTAS:
+    if(maior_int == 0){
+        printf("\n Nenhum país foi visitado!\n");
+    }else{
+    	int i, j;
+        printf("\n O(s) país(es) mais visitado(s) foi(am):\n");
+        for (i = 0; i < contador_p; i++) {
+            printf(" - %s\n", maiores_paises[i]->nome);
+        }
+        printf("\n");
+        printf("\n O(s) sítio(s) turístico(s) mais visitado(s) foi(am):\n");
+        for (j = 0; j < contador_c; j++) {
+            printf(" - %s\n", maiores_cidades[j]->nome);
+        }
     }
 }
 
@@ -1075,15 +1307,43 @@ void sim_visitados(Lista *inicio){
             printf(" %s \n", atual->nome);
             visitado = 1;
         }
-        if(atual->baixo == NULL){
+        atual = atual->prox;
+      /*  if(atual->baixo == NULL){
             aux = aux->prox;
             atual = aux;
         }else{
             atual = atual->baixo;
-        }
+        } */
     }
     if(visitado == 0){
         printf("\n Nenhum país foi visitado ainda!\n");
     }
 }
 
+void liberar_arvore(Arvore* raiz) {
+    if (raiz == NULL) {
+        return;
+    }
+
+    liberar_arvore(raiz->sim);
+    liberar_arvore(raiz->nao);
+    free(raiz);
+}
+
+void liberar_lista(Lista* inicio) {
+    Lista* pais = inicio;
+    Lista* temp = NULL;
+
+    while (pais != NULL) {
+        Lista* cidade = pais->baixo;
+        while (cidade != NULL) {
+            temp = cidade;
+            cidade = cidade->baixo;
+            free(temp);
+        }
+        
+        temp = pais;
+        pais = pais->prox;
+        free(temp);
+    }
+}
