@@ -1,0 +1,124 @@
+void mais_visitado_decidido(Lista *inicio){
+    // DECLARAÇÃO DE VARIÁVEIS:
+    Lista *atual, *aux;
+    Lista *maiores_paises[20]; // Usando um array para armazenar os países com a maior quantidade de turistas
+    Lista *maiores_cidades[20];
+    int maior_int = 0;
+    int contador_p = 0;
+    int contador_c = 0;
+
+    atual = inicio;
+    aux = atual;
+
+    // ENCONTRANDO A MAIOR QUANTIDADE DE TURISTAS:
+    while(atual != NULL){
+        if(atual->qtde_turista01 > maior_int){
+            maior_int = atual->qtde_turista01;
+            maiores_paises[0] = atual; // Se encontrarmos uma nova maior quantidade, limpamos a lista e armazenamos o novo país
+            contador_p = 1;
+        } /* else if (atual->qtde_turista01 == maior_int) {
+            maiores[contador] = atual; // Se a quantidade for igual à máxima, adicionamos o país ao array
+            contador++;
+        } */
+		atual = atual->prox;
+       /* if(atual->baixo == NULL){
+            aux = aux->prox;
+            atual = aux;
+        }else{
+            atual = atual->baixo;
+        } */
+    }
+    
+    atual = inicio;
+    
+	while(atual != NULL){
+		if(atual->qtde_turista01 == maior_int){
+			atual = atual->prox;
+			break;
+		}
+		atual = atual->prox;
+	}
+	while(atual != NULL){
+		if(atual->qtde_turista01 == maior_int){
+			maiores_paises[contador_p] = atual;
+			contador_p++;
+		}
+		atual = atual->prox;
+	}
+	
+	maior_int = 0;
+    atual = inicio->baixo;
+    
+    while(atual != NULL){
+        if(atual->qtde_turista01 > maior_int){
+            maior_int = atual->qtde_turista01;
+            maiores_cidades[0] = atual; // Se encontrarmos uma nova maior quantidade, limpamos a lista e armazenamos o novo país
+            contador_c = 1;
+        }
+        if(atual->baixo == NULL){
+            aux = aux->prox;
+            if(aux != NULL){
+            	atual = aux->baixo;
+			}
+			else{
+				atual = NULL;
+			}
+        }else{
+            atual = atual->baixo;
+        } 
+    }
+    
+    atual = inicio->baixo;
+    aux = inicio;
+    
+    while(atual != NULL){
+		if(atual->qtde_turista01 == maior_int){
+			atual = atual->baixo;
+			break;
+		}
+        if(atual->baixo == NULL){
+            aux = aux->prox;
+            if(aux != NULL){
+            	atual = aux->baixo;
+			}
+			else{
+				atual = NULL;
+			}
+        }else{
+            atual = atual->baixo;
+        }
+	}
+	while(atual != NULL){
+		if(atual->qtde_turista01 == maior_int){
+			maiores_cidades[contador_c] = atual;
+			contador_c++;
+		}
+		if(atual->baixo == NULL){
+            aux = aux->prox;
+            if(aux != NULL){
+            	atual = aux->baixo;
+			}
+			else{
+				atual = NULL;
+			}
+        }else{
+            atual = atual->baixo;
+        }
+	}
+
+    // IMPRIMINDO OS PAÍSES COM A MAIOR QUANTIDADE DE TURISTAS:
+    if(maior_int == 0){
+        printf("\n Nenhum país foi visitado!\n");
+    }else{
+    	int i, j;
+        printf("\n O(s) país(es) mais visitado(s) foi(am):\n");
+        for (i = 0; i < contador_p; i++) {
+            printf(" - %s\n", maiores_paises[i]->nome);
+        }
+        printf("\n");
+        printf("\n O(s) sítio(s) turístico(s) mais visitado(s) foi(am):\n");
+        for (j = 0; j < contador_c; j++) {
+            printf(" - %s\n", maiores_cidades[j]->nome);
+        }
+    }
+}
